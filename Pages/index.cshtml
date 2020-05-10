@@ -1,0 +1,38 @@
+﻿@page
+@model Setup.Pages.index
+@using System.Dynamic
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Setup.Pages
+@inject IViewLocalizer Localizer
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Setup</title>
+</head>
+<body>
+<div>
+    <label for="name">Name</label>
+    <input id="name" aria-describedby="nTooltip"/>
+    <x-tooltip id="nTooltip">@Localizer["Bitte geben Sie Ihren Vor- und Nachnamen ein."]</x-tooltip>
+    <br/>
+    <br/>
+    <x-dropdown label=@Localizer["Land"]>
+        <option value="at">@Localizer["Österreich"]</option>
+        <option value="de">@Localizer["Deutschland"]</option>
+    </x-dropdown>
+    <br/>
+    <br/>
+    <x-dropdown2 label=@Localizer["Land"]></x-dropdown2>
+
+    <x-component message="hello world"></x-component>
+
+</div>
+@await Component.InvokeAsync(typeof(Localization), Localizer)
+<script src="~/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿@model string
+
+<script>
+    window.project = @Html.Raw("window.project || {}");
+    window.project.translations = @Html.Raw(@Model);
+</script>
